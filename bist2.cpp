@@ -166,11 +166,16 @@ class bist{
 		void deleteHelper(node* curr){
 			//case1: when curr is leaf -- 0 child
 			if(curr->left==NULL && curr->right==NULL){
-				if(curr->parent->left==curr){	//if curr is the left child of its parent
-					curr->parent->left=NULL;	
+				if(curr!=root){
+					if(curr->parent->left==curr){	//if curr is the left child of its parent
+						curr->parent->left=NULL;	
+					}
+					else{							//if curr is the right child of its parent
+						curr->parent->right=NULL;
+					}
 				}
-				else{							//if curr is the right child of its parent
-					curr->parent->right=NULL;
+				else{
+					root=NULL;
 				}
 			}
 			//case2: when curr has one right child
@@ -218,7 +223,6 @@ int main(){
 	b1.f_count();
 	return 0;
 }
-
 */
 
 int main(){
@@ -258,5 +262,3 @@ int main(){
     bst1.print2D();
 
 }
-
-
